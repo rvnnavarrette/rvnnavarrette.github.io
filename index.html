@@ -15,8 +15,8 @@
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(59,130,246,0.15), transparent 30%),
+        radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(139,92,246,0.14), transparent 30%),
         #020617;
       color: #e5e7eb;
       line-height: 1.7;
@@ -25,11 +25,11 @@
     nav {
       position: sticky;
       top: 0;
+      z-index: 100;
       background: rgba(2, 6, 23, 0.82);
       backdrop-filter: blur(14px);
       padding: 16px 20px;
       text-align: center;
-      z-index: 10;
       border-bottom: 1px solid rgba(148, 163, 184, 0.15);
     }
 
@@ -46,24 +46,30 @@
     }
 
     header {
-      min-height: 95vh;
+      min-height: 96vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 70px 20px;
+      padding: 80px 20px;
       background:
-        linear-gradient(rgba(2, 6, 23, 0.25), rgba(2, 6, 23, 0.9)),
-        radial-gradient(circle at center, rgba(56,189,248,0.2), transparent 45%);
+        linear-gradient(rgba(2, 6, 23, 0.2), rgba(2, 6, 23, 0.92)),
+        radial-gradient(circle at center, rgba(56,189,248,0.22), transparent 45%);
     }
 
     .hero {
-      max-width: 900px;
-      padding: 35px;
-      border-radius: 28px;
-      background: rgba(15, 23, 42, 0.45);
+      max-width: 950px;
+      padding: 40px;
+      border-radius: 32px;
+      background: rgba(15, 23, 42, 0.48);
       border: 1px solid rgba(148, 163, 184, 0.18);
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+      animation: fadeUp 0.9s ease forwards;
+    }
+
+    .profile-wrap {
+      position: relative;
+      display: inline-block;
     }
 
     .profile-pic {
@@ -72,28 +78,97 @@
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #38bdf8;
-      margin-bottom: 20px;
-      box-shadow: 0 0 35px rgba(56, 189, 248, 0.45);
+      margin-bottom: 18px;
+      box-shadow: 0 0 38px rgba(56, 189, 248, 0.45);
+    }
+
+    .status-badge {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #7dd3fc;
+      font-size: 14px;
+      font-weight: 700;
     }
 
     h1 {
-      font-size: 58px;
-      margin: 10px 0;
+      font-size: 60px;
+      margin: 8px 0;
       background: linear-gradient(90deg, #38bdf8, #a5f3fc, #ffffff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+    }
+
+    .tagline {
+      font-size: 23px;
+      color: #f8fafc;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero-description {
+      max-width: 740px;
+      margin: 0 auto;
+      color: #cbd5e1;
+    }
+
+    .btn-group {
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 8px;
+      padding: 13px 26px;
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      color: white;
+      border-radius: 999px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.25);
+      transition: 0.25s;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid rgba(56, 189, 248, 0.55);
+      color: #7dd3fc;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.35);
+    }
+
+    section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 85px 20px;
+    }
+
+    .section-kicker {
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 8px;
     }
 
     h2 {
       color: #38bdf8;
-      font-size: 34px;
-      margin-bottom: 15px;
+      font-size: 36px;
+      margin: 0 0 15px;
     }
 
     h2::after {
       content: "";
       display: block;
-      width: 70px;
+      width: 75px;
       height: 4px;
       margin-top: 10px;
       background: linear-gradient(90deg, #38bdf8, transparent);
@@ -105,56 +180,57 @@
       margin-top: 10px;
     }
 
-    .tagline {
-      font-size: 21px;
-      color: #cbd5e1;
-      font-weight: 600;
+    .card {
+      background: rgba(30, 41, 59, 0.72);
+      padding: 30px;
+      border-radius: 22px;
+      margin-top: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.24);
     }
 
-    .btn {
-      display: inline-block;
+    .fade-section {
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
       margin-top: 24px;
-      padding: 13px 26px;
-      background: linear-gradient(135deg, #38bdf8, #2563eb);
-      color: white;
-      border-radius: 999px;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.25);
+    }
+
+    .stat-card {
+      padding: 22px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.22);
       transition: 0.25s;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.35);
+    .stat-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56, 189, 248, 0.65);
     }
 
-    section {
-      max-width: 1150px;
-      margin: auto;
-      padding: 80px 20px;
-    }
-
-    .card {
-      background: rgba(30, 41, 59, 0.72);
-      padding: 28px;
-      border-radius: 20px;
-      margin-top: 22px;
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.22);
+    .stat-card strong {
+      display: block;
+      color: #7dd3fc;
+      font-size: 24px;
+      margin-bottom: 6px;
     }
 
     .featured-project {
       background:
-        linear-gradient(145deg, rgba(17, 24, 39, 0.95), rgba(15, 23, 42, 0.88));
+        linear-gradient(145deg, rgba(17, 24, 39, 0.96), rgba(15, 23, 42, 0.9));
       border: 1px solid rgba(56, 189, 248, 0.55);
     }
 
     .project-main-img {
       width: 100%;
-      max-height: 440px;
+      max-height: 460px;
       object-fit: cover;
-      border-radius: 18px;
+      border-radius: 20px;
       margin: 24px 0;
       border: 1px solid rgba(148, 163, 184, 0.25);
       box-shadow: 0 18px 45px rgba(0,0,0,0.35);
@@ -166,8 +242,27 @@
     }
 
     .clickable-image:hover {
-      transform: scale(1.03);
-      filter: brightness(1.15);
+      transform: scale(1.025);
+      filter: brightness(1.13);
+    }
+
+    .cso-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin: 24px 0;
+    }
+
+    .cso-card {
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .cso-card h3 {
+      color: #7dd3fc;
+      margin-top: 0;
     }
 
     .grid {
@@ -185,7 +280,7 @@
     }
 
     .mini-card:hover,
-    .gallery div:hover {
+    .gallery-item:hover {
       transform: translateY(-6px);
       border-color: rgba(56, 189, 248, 0.65);
     }
@@ -197,7 +292,9 @@
       margin-top: 25px;
     }
 
-    .gallery div {
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
       background: rgba(15, 23, 42, 0.75);
       padding: 12px;
       border-radius: 18px;
@@ -205,15 +302,42 @@
       transition: 0.25s;
     }
 
-    .gallery img {
+    .gallery-item img {
       width: 100%;
-      height: 195px;
+      height: 200px;
       object-fit: cover;
       border-radius: 14px;
       border: 1px solid rgba(148, 163, 184, 0.18);
+      display: block;
     }
 
-    .gallery p {
+    .image-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      background: rgba(2, 6, 23, 0.72);
+      color: #f8fafc;
+      font-weight: 800;
+      opacity: 0;
+      transition: 0.25s;
+      pointer-events: none;
+    }
+
+    .image-wrap:hover .overlay {
+      opacity: 1;
+    }
+
+    .gallery-item p {
       margin: 10px 4px 2px;
       color: #cbd5e1;
       font-size: 14px;
@@ -248,7 +372,7 @@
       position: fixed;
       z-index: 9999;
       inset: 0;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.92);
       padding: 50px 20px;
     }
 
@@ -277,19 +401,34 @@
 
     footer {
       text-align: center;
-      padding: 34px 20px;
+      padding: 38px 20px;
       background: rgba(2, 6, 23, 0.95);
       color: #94a3b8;
       border-top: 1px solid rgba(148, 163, 184, 0.15);
     }
 
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 600px) {
       h1 {
-        font-size: 38px;
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 30px;
       }
 
       .hero {
-        padding: 25px 18px;
+        padding: 26px 18px;
       }
 
       nav a {
@@ -326,22 +465,34 @@
 
   <header>
     <div class="hero">
-      <img class="profile-pic" src="images/portfolio-image.jpg" alt="RVN Navarrette Profile Photo">
+      <div class="profile-wrap">
+        <img class="profile-pic" src="images/portfolio-image.jpg" alt="RVN Navarrette Profile Photo">
+      </div>
+
+      <div class="status-badge">Open to learning, building, and future opportunities</div>
 
       <h1>RVN Navarrette</h1>
-      <p class="tagline">Aspiring Developer | Full-Stack Web Development Learner | System Builder</p>
 
-      <p>
-        I build practical web systems focused on solving real-world problems through simple,
-        useful, and accessible digital solutions.
+      <p class="tagline">
+        Building practical digital systems that modernize academic workflows.
       </p>
 
-      <a class="btn" href="#project">View My Featured Project</a>
+      <p class="hero-description">
+        I’m an aspiring developer focused on full-stack web systems, dashboards, database-driven applications,
+        and tools that turn manual processes into accessible digital solutions.
+      </p>
+
+      <div class="btn-group">
+        <a class="btn" href="#project">View Featured Project</a>
+        <a class="btn secondary" href="#contact">Contact Me</a>
+      </div>
     </div>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
+  <section id="about" class="fade-section">
+    <p class="section-kicker">About Me</p>
+    <h2>Developer focused on useful systems</h2>
+
     <div class="card">
       <p>
         Hi! I’m RVN Navarrette, an aspiring developer currently learning and building web-based systems.
@@ -353,21 +504,68 @@
         My current focus is building practical systems for academic and administrative use, including
         online portals, dashboards, verification tools, and reporting modules.
       </p>
+
+      <div class="stats">
+        <div class="stat-card">
+          <strong>1</strong>
+          Institutional system showcased
+        </div>
+
+        <div class="stat-card">
+          <strong>Realtime</strong>
+          Status tracking with Supabase
+        </div>
+
+        <div class="stat-card">
+          <strong>CSV + Reports</strong>
+          Data import, export, and analytics
+        </div>
+
+        <div class="stat-card">
+          <strong>Role-Based</strong>
+          Client and admin workflows
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="project">
-    <h2>Featured Project</h2>
+  <section id="project" class="fade-section">
+    <p class="section-kicker">Featured Case Study</p>
+    <h2>CSU Registrar Verification System</h2>
 
     <div class="card featured-project">
-      <h3>CSU Registrar Verification System</h3>
-
       <p>
         A real-time, role-based credential verification platform built with Supabase and vanilla JavaScript —
         digitizing the registrar verification process of Cagayan State University – Carig Campus.
       </p>
 
       <img class="project-main-img clickable-image" src="images/home-dashboard-1.png" alt="CSU Registrar Verification System Dashboard">
+
+      <div class="cso-grid">
+        <div class="cso-card">
+          <h3>Challenge</h3>
+          <p>
+            Manual credential verification can be slow, repetitive, and difficult to track for alumni,
+            students, registrar staff, and third-party institutions.
+          </p>
+        </div>
+
+        <div class="cso-card">
+          <h3>Solution</h3>
+          <p>
+            I built a secure online portal where clients can submit requests, upload documents,
+            track status in real time, and receive official verification updates.
+          </p>
+        </div>
+
+        <div class="cso-card">
+          <h3>Outcome</h3>
+          <p>
+            The system centralizes requests, improves transparency, supports analytics,
+            and helps reduce processing time from days to hours.
+          </p>
+        </div>
+      </div>
 
       <h3>Project Overview</h3>
       <p>
@@ -382,13 +580,6 @@
         staff manage requests, student records, reports, and printable verification letters from one dashboard.
       </p>
 
-      <h3>Problem Solved</h3>
-      <p>
-        University registrars handle many credential verification requests from employers, foreign institutions,
-        graduates, and other third parties. Manual processing can be slow, repetitive, error-prone, and lacks
-        transparency for clients. This system helps make the process faster, more organized, and easier to track.
-      </p>
-
       <h3>My Role</h3>
       <p>
         Full-stack developer responsible for building the client portal, admin dashboard, real-time status updates,
@@ -396,6 +587,7 @@
       </p>
 
       <h3>Key Features</h3>
+
       <div class="grid">
         <div class="mini-card">
           <h3>Client Portal</h3>
@@ -460,23 +652,35 @@
       </p>
 
       <div class="gallery">
-        <div>
-          <img class="clickable-image" src="images/csu-login.jpg" alt="Login Page Screenshot">
+        <div class="gallery-item">
+          <div class="image-wrap">
+            <img class="clickable-image" src="images/csu-login.jpg" alt="Login Page Screenshot">
+            <div class="overlay">View Login Page</div>
+          </div>
           <p>Login and authentication page</p>
         </div>
 
-        <div>
-          <img class="clickable-image" src="images/myrequest-dashboard.png" alt="Client Request Dashboard Screenshot">
+        <div class="gallery-item">
+          <div class="image-wrap">
+            <img class="clickable-image" src="images/myrequest-dashboard.png" alt="Client Request Dashboard Screenshot">
+            <div class="overlay">View Client Dashboard</div>
+          </div>
           <p>Client dashboard with request status tracking</p>
         </div>
 
-        <div>
-          <img class="clickable-image" src="images/admin-dashboard.png" alt="Admin Dashboard Screenshot">
+        <div class="gallery-item">
+          <div class="image-wrap">
+            <img class="clickable-image" src="images/admin-dashboard.png" alt="Admin Dashboard Screenshot">
+            <div class="overlay">View Admin Dashboard</div>
+          </div>
           <p>Admin dashboard for managing verification requests</p>
         </div>
 
-        <div>
-          <img class="clickable-image" src="images/Analytics-reports.png" alt="Reports Module Screenshot">
+        <div class="gallery-item">
+          <div class="image-wrap">
+            <img class="clickable-image" src="images/Analytics-reports.png" alt="Reports Module Screenshot">
+            <div class="overlay">View Reports Module</div>
+          </div>
           <p>Reports and enrollment analytics module</p>
         </div>
       </div>
@@ -501,7 +705,8 @@
     </div>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="fade-section">
+    <p class="section-kicker">Technical Toolkit</p>
     <h2>Skills</h2>
 
     <div class="card">
@@ -519,10 +724,16 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="fade-section">
+    <p class="section-kicker">Let’s Connect</p>
     <h2>Contact</h2>
 
     <div class="card">
+      <p>
+        Currently growing in full-stack development and open to future opportunities,
+        collaborations, and learning experiences.
+      </p>
+
       <p>
         <strong>GitHub:</strong>
         <a href="https://github.com/rvnnavarrette" target="_blank">
@@ -540,7 +751,7 @@
   </section>
 
   <footer>
-    <p>© 2026 RVN Navarrette. Built with GitHub Pages.</p>
+    <p>Designed & Developed by RVN Navarrette • Powered by GitHub Pages</p>
   </footer>
 
   <div id="imageModal" class="modal">
@@ -563,22 +774,22 @@
       });
     });
 
-    closeBtn.addEventListener("click", () => {
+    function closeModal() {
       modal.style.display = "none";
       document.body.style.overflow = "auto";
-    });
+    }
+
+    closeBtn.addEventListener("click", closeModal);
 
     modal.addEventListener("click", (event) => {
       if (event.target === modal) {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
+        closeModal();
       }
     });
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
+        closeModal();
       }
     });
   </script>
