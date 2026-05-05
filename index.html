@@ -1,155 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RVN Navarrette | Portfolio</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #0f172a;
-      color: white;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: #020617;
+      padding: 15px 20px;
+      text-align: center;
+      z-index: 10;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
     }
 
     header {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 50px 20px;
-      background: #111827;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #020617, #1e293b);
     }
 
-    header img {
+    .hero {
+      max-width: 850px;
+    }
+
+    .profile-pic {
       width: 160px;
       height: 160px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #38bdf8;
+      margin-bottom: 20px;
     }
 
-    header h1 {
-      margin-top: 15px;
-      font-size: 40px;
-    }
-
-    header p {
-      color: #cbd5e1;
-    }
-
-    .profile-pic {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto 20px;
-  border: 4px solid #38bdf8;
-}
-
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
+    h1 {
+      font-size: 48px;
+      margin: 10px 0;
     }
 
     h2 {
       color: #38bdf8;
-      border-bottom: 2px solid #38bdf8;
-      padding-bottom: 8px;
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      color: #f8fafc;
+      margin-top: 10px;
+    }
+
+    .tagline {
+      font-size: 20px;
+      color: #cbd5e1;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 22px;
+      background: #38bdf8;
+      color: #020617;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #7dd3fc;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 20px;
     }
 
     .card {
       background: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
+      padding: 25px;
+      border-radius: 15px;
       margin-top: 20px;
+      border: 1px solid #334155;
     }
 
-    .projects {
+    .featured-project {
+      background: #111827;
+      border: 1px solid #38bdf8;
+    }
+
+    .project-main-img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 20px 0;
+      border: 1px solid #334155;
+    }
+
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
     }
 
-    .project-card img {
+    .mini-card {
+      background: #0f172a;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .gallery img {
       width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+
+    .gallery p {
+      margin-top: 8px;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    .tech-stack span {
+      display: inline-block;
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 8px 12px;
+      border-radius: 20px;
+      margin: 5px;
+      border: 1px solid #334155;
+      font-size: 14px;
     }
 
     a {
       color: #38bdf8;
-      text-decoration: none;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
-      background: #111827;
+      padding: 30px 20px;
+      background: #020617;
       color: #94a3b8;
+      border-top: 1px solid #1e293b;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px;
+      }
     }
   </style>
 </head>
+
 <body>
 
+  <nav>
+    <a href="#about">About</a>
+    <a href="#project">Project</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <header>
-    <img class="profile-pic" src="images/portfolio-image.jpg" alt="RVN Navarrette">
-    <h1>RVN Navarrette</h1>
-    <p>Aspiring Developer | Student | Building My Web Development Journey</p>
+    <div class="hero">
+      <!-- Change profile.jpg to your actual profile image name -->
+      <img class="profile-pic" src="images/portfolio-image.jpg" alt="RVN Navarrette Profile Photo">
+
+      <h1>RVN Navarrette</h1>
+      <p class="tagline">Aspiring Developer | Full-Stack Web Development Learner | System Builder</p>
+
+      <p>
+        I build practical web systems focused on solving real-world problems through simple,
+        useful, and accessible digital solutions.
+      </p>
+
+      <a class="btn" href="#project">View My Featured Project</a>
+    </div>
   </header>
 
-  <section>
+  <section id="about">
     <h2>About Me</h2>
     <div class="card">
       <p>
-        Hi! I’m RVN Navarrette. I’m currently learning web development, GitHub Pages,
-        and software development while building projects that improve my skills.
+        Hi! I’m RVN Navarrette, an aspiring developer currently learning and building web-based systems.
+        I am interested in full-stack development, database-driven applications, automation, and creating
+        digital tools that improve manual workflows.
+      </p>
+
+      <p>
+        My current focus is building practical systems for academic and administrative use, including
+        online portals, dashboards, verification tools, and reporting modules.
       </p>
     </div>
   </section>
 
-  <section>
-    <h2>Current Projects</h2>
-    <div class="projects">
+  <section id="project">
+    <h2>Featured Project</h2>
 
-      <div class="card project-card">
-        <img src="images/project1.jpg" alt="Portfolio Website Project">
-        <h3>Portfolio Website</h3>
-        <p>
-          Building my own portfolio website using HTML, CSS, and GitHub Pages
-          to showcase my journey and projects online.
-        </p>
+    <div class="card featured-project">
+      <h3>CSU Registrar Verification System</h3>
+
+      <p>
+        A real-time, role-based credential verification platform built with Supabase and vanilla JavaScript —
+        digitizing the registrar verification process of Cagayan State University – Carig Campus.
+      </p>
+
+      <!-- Change csu-dashboard.jpg to your main project screenshot -->
+      <img class="project-main-img" src="images/csu-dashboard.jpg" alt="CSU Registrar Verification System Dashboard">
+
+      <h3>Project Overview</h3>
+      <p>
+        The CSU Registrar Verification System is a full-stack web application developed for the
+        Cagayan State University – Carig Campus Registrar's Office. It digitizes the academic credential
+        verification process between alumni/students and registrar staff.
+      </p>
+
+      <p>
+        The system replaces traditional walk-in and email-based document verification workflows with a secure
+        online portal where clients can submit verification requests and track them in real time, while registrar
+        staff manage requests, student records, reports, and printable verification letters from one dashboard.
+      </p>
+
+      <h3>Problem Solved</h3>
+      <p>
+        University registrars handle many credential verification requests from employers, foreign institutions,
+        graduates, and other third parties. Manual processing can be slow, repetitive, error-prone, and lacks
+        transparency for clients. This system helps make the process faster, more organized, and easier to track.
+      </p>
+
+      <h3>My Role</h3>
+      <p>
+        Full-stack developer responsible for building the client portal, admin dashboard, real-time status updates,
+        database integration, reports module, public verification page, and overall system interface.
+      </p>
+
+      <h3>Key Features</h3>
+      <div class="grid">
+        <div class="mini-card">
+          <h3>Client Portal</h3>
+          <ul>
+            <li>Email/password sign-up and login</li>
+            <li>Submit verification requests</li>
+            <li>Upload TOR, Diploma, and Certificate of Grades</li>
+            <li>Track request status in real time</li>
+            <li>View admin remarks and document assessments</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <h3>Admin Dashboard</h3>
+          <ul>
+            <li>Review, filter, and search requests</li>
+            <li>Approve or reject with remarks</li>
+            <li>Manage student records</li>
+            <li>Import records through CSV</li>
+            <li>Export data and print verification letters</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <h3>Reports & Analytics</h3>
+          <ul>
+            <li>Auto-generated student counts</li>
+            <li>Transferees, Dropouts, and Graduates reports</li>
+            <li>Enrollment trends using Chart.js</li>
+            <li>CSV export support</li>
+            <li>Printable report outputs</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <h3>Verification & Security</h3>
+          <ul>
+            <li>Public verification page</li>
+            <li>Verification code validation</li>
+            <li>Audit log of admin actions</li>
+            <li>Role-based access</li>
+            <li>Private institutional access</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="card project-card">
-        <img src="images/project2.jpg" alt="Learning Project">
-        <h3>Learning Web Development</h3>
-        <p>
-          Exploring responsive design, custom domains, and website deployment
-          while improving my coding skills.
-        </p>
+      <h3>Tech Stack</h3>
+      <div class="tech-stack">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>Vanilla JavaScript</span>
+        <span>Supabase</span>
+        <span>Supabase Realtime</span>
+        <span>Chart.js</span>
+        <span>CSV Processing</span>
       </div>
 
+      <h3>Project Screenshots</h3>
+      <p>
+        Since this is a private institutional project, I showcase selected screenshots only.
+        Sensitive student information, records, and internal data are hidden or blurred.
+      </p>
+
+      <div class="gallery">
+        <div>
+          <!-- Change screenshot names below to your uploaded filenames -->
+          <img src="images/csu-login.jpg" alt="Login Page Screenshot">
+          <p>Login and authentication page</p>
+        </div>
+
+        <div>
+          <img src="images/csu-client-dashboard.jpg" alt="Client Dashboard Screenshot">
+          <p>Client dashboard with request status tracking</p>
+        </div>
+
+        <div>
+          <img src="images/csu-admin-dashboard.jpg" alt="Admin Dashboard Screenshot">
+          <p>Admin dashboard for managing verification requests</p>
+        </div>
+
+        <div>
+          <img src="images/csu-reports.jpg" alt="Reports Module Screenshot">
+          <p>Reports and enrollment analytics module</p>
+        </div>
+      </div>
+
+      <h3>Impact</h3>
+      <ul>
+        <li>Helps reduce credential verification processing time from days to hours</li>
+        <li>Gives clients real-time visibility into their request status</li>
+        <li>Centralizes student records and registrar workflows</li>
+        <li>Provides enrollment analytics and report generation</li>
+        <li>Generates official, printable, code-verified letters</li>
+      </ul>
+
+      <p>
+        <strong>Status:</strong> Active Development / Private Institutional Project
+      </p>
+
+      <p>
+        <strong>Privacy Note:</strong> This system is privately maintained for institutional use.
+        Public source code and live system access are restricted.
+      </p>
     </div>
   </section>
 
-  <section>
+  <section id="skills">
     <h2>Skills</h2>
+
     <div class="card">
-      <p>HTML • CSS • GitHub • GitHub Pages • Beginner Web Development</p>
+      <div class="tech-stack">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Supabase</span>
+        <span>GitHub</span>
+        <span>GitHub Pages</span>
+        <span>Responsive Design</span>
+        <span>Database Integration</span>
+        <span>Dashboard Development</span>
+      </div>
     </div>
   </section>
 
-  <section>
+  <section id="contact">
     <h2>Contact</h2>
+
     <div class="card">
-      <p>GitHub: <a href="https://github.com/rvnnavarrette">github.com/rvnnavarrette</a></p>
-      <p>Website: <a href="https://rvnnavarrette.github.io">rvnnavarrette.github.io</a></p>
+      <p>
+        <strong>GitHub:</strong>
+        <a href="https://github.com/rvnnavarrette" target="_blank">
+          github.com/rvnnavarrette
+        </a>
+      </p>
+
+      <p>
+        <strong>Website:</strong>
+        <a href="https://rvnnavarrette.github.io" target="_blank">
+          rvnnavarrette.github.io
+        </a>
+      </p>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 RVN Navarrette | Built with GitHub Pages</p>
+    <p>© 2026 RVN Navarrette. Built with GitHub Pages.</p>
   </footer>
 
 </body>
